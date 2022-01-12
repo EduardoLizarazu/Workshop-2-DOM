@@ -6,9 +6,9 @@ console.log("Hello world!")
 // crear (1) imagen
 // agregar #imagen
 
-{/* <div class="p4">
-    <img class="mx-auto" width="320px"src="https://randomfox.ca/images/2.jpg" alt="fox image">
-</div> */}
+const maximum = 122;
+const minimum = 1;
+const random = () => Math.floor(Math.random() * (maximum - minimum) + minimum);
 
 const createImageNode= () => {
     // create container div
