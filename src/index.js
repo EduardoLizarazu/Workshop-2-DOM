@@ -11,13 +11,20 @@ console.log("Hello world!")
 </div> */}
 
 const createImageNode= () => {
+    // create container div
+    const container = document.createElement("div");
+    container.className = "p4";
+
     // create img
     const image = document.createElement("img");
     image.className = "mx-auto";
     image.width = "320";
     image.src = "https://randomfox.ca/images/2.jpg";
-    
-    return image; // retorno el nodo de la image
+
+    // put img inside the container
+    container.appendChild(image);
+
+    return container; // return => node container
 }
 const newImage = createImageNode();
 const mountNode = document.querySelector("#images");
