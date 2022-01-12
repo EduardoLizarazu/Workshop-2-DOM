@@ -2,6 +2,16 @@ import getData from "../utils/getData";
 
 const API = "https://randomfox.ca/floof/";
 
+// const preRender = async () => {
+//     const urlCatch = await getData(API);
+//     const parent = document.querySelector("#image-app");
+//     const image = document.createElement("img");
+//     const container = document.createElement("div");
+//     parent.appendChild(container);
+//     container.appendChild(image);
+// }
+// preRender();
+
 const viewImage = async () => {
     const urlCatch = await getData(API);
     // HTML
