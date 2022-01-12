@@ -2,10 +2,13 @@
  * This file is just a silly example to show everything working in the browser.
  * When you're ready to start on your site, clear the file. Happy hacking!
 **/
-console.log("Hello world!")
-// crear (1) imagen
-// agregar #imagen
-
+/**
+ * 1. crear (1) imagen
+ * 2. agregar #imagen
+ * * 2.1 imagenes aleatorias
+ * 3. Evento - DOM 0 -> Agregar imagenes
+*/
+ 
 const maximum = 122;
 const minimum = 1;
 const random = () => Math.floor(Math.random() * (maximum - minimum) + minimum);
@@ -26,6 +29,13 @@ const createImageNode= () => {
 
     return container; // return => node container
 }
-const newImage = createImageNode();
+
+// select mountNode
 const mountNode = document.querySelector("#images");
-mountNode.appendChild(newImage) // la agrego
+
+const addButton = document.querySelector("button");
+const addImage = () => {
+    const newImage = createImageNode(); // nodo img
+    mountNode.appendChild(newImage) // put into mountNode
+}
+addButton.addEventListener("click", addImage);
