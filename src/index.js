@@ -7,8 +7,13 @@
  * 2. agregar #imagen
  * * 2.1 imagenes aleatorias
  * 3. Evento - DOM 0 -> Agregar imagenes
+ * 
+ * 4. Intersection observer
+ * 5. Lazy loading
 */
  
+import {  registerImage  } from "./lazy"
+
 const maximum = 122;
 const minimum = 1;
 const random = () => Math.floor(Math.random() * (maximum - minimum) + minimum);
@@ -37,5 +42,6 @@ const addButton = document.querySelector("button");
 const addImage = () => {
     const newImage = createImageNode(); // nodo img
     mountNode.appendChild(newImage) // put into mountNode
+    registerImage(newImage); // listen
 }
 addButton.addEventListener("click", addImage);
