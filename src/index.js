@@ -27,7 +27,13 @@ const createImageNode= () => {
     const image = document.createElement("img");
     image.className = "mx-auto";
     image.width = "320";
-    image.src = `https://randomfox.ca/images/${random()}.jpg`;
+    // Al momento de cargar la src se carga la imagen por lo que la quitamos
+    // Una forma de hacerla lazy es ponerla en la funcion action de lazy.js
+    // image.src = `https://randomfox.ca/images/${random()}.jpg`;
+
+    // la otra opcion es hacer un dataset que es del DOM
+    // Esta propiedad por si sola contiene la lista de todos los atributos personalizados que le pusiste a tu elemento
+    image.dataset.src = `https://randomfox.ca/images/${random()}.jpg`;
 
     // put img inside the container
     container.appendChild(image);
