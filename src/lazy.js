@@ -6,8 +6,12 @@ const isIntersecting = entry => {
     return entry.isIntersecting
 }
 
-const action = () => {
-    console.log("Hello!")
+const action = entry => {
+    const node = entry.target; // obtener el nodo
+    console.log("Hello!");
+
+    // des resgistra la imagen (unlisten)
+    observer.unobserve(node)
 }
 
 // Recibe una accion o funcion donde vamos a especificar que hacer por imagen
