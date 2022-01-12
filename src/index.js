@@ -19,3 +19,4 @@ const createImageNode= () => {
     return image; // retorno el nodo
 }
 const newImage = createImageNode();
+document.querySelector("#images").appendChild(newImage);
