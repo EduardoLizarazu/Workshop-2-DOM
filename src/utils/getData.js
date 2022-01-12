@@ -1,5 +1,3 @@
-// https://randomfox.ca/images/2.jpg
-const API = "https://randomfox.ca/floof";
 
 const getData = async (url) => {
     try {
@@ -15,5 +13,5 @@ const getData = async (url) => {
     }
 };
 
-const imageFetched = getData(API);
-export default imageFetched;
+
+export default getData;

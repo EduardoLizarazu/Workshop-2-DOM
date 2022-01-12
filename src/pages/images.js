@@ -1,7 +1,9 @@
-import imageFetched from "../utils/getData";
+import getData from "../utils/getData";
+
+const API = "https://randomfox.ca/floof/";
 
 const viewImage = async () => {
-    const urlCatch = await imageFetched;
+    const urlCatch = await getData(API);
     // HTML
     const parent = document.querySelector("#image-app");
     const image = document.createElement("img");
@@ -11,10 +13,10 @@ const viewImage = async () => {
 
     // Atrubute
     container.className = "p4 my-5";
-    // image.src = `https://randomfox.ca/images/2.jpg`;
     image.style.width = "320px";
     image.alt = "fox image";
     image.src = `${urlCatch}`;
+    image.loading = "lazy";
 } 
 
 export default viewImage;
