@@ -1,8 +1,11 @@
-// Is intersecting ?
-const isIntersecting = entry => {
-        // true -> dentro de la pantalla
-    return entry.isIntersecting
-}
+
+// Is intersecting ? // true -> interstion viewport
+const isIntersecting = entry => entry.isIntersecting;
+
+const observer = new IntersectionObserver( entries => {
+    console.log(entries[0].isIntersecting)
+    entries.filter(isIntersecting).forEach(loadImage)
+}, { threshold: 0.5 })
 
 const loadImage = entry => {
     // put the src to render img
@@ -10,15 +13,9 @@ const loadImage = entry => {
     const image = container.firstChild 
     const url = image.dataset.src;
     image.src = url;
-
+    
     observer.unobserve(container) // unobserve
 }
-
-const observer = new IntersectionObserver( entries => {
-    entries
-        .filter(isIntersecting)
-        .forEach(loadImage)
-})
 
 export const registerImage = image => {
     // Intersection Observe -> observe(image)
