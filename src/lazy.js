@@ -1,10 +1,18 @@
-
 // Is intersecting ? // true -> interstion viewport
 const isIntersecting = entry => entry.isIntersecting;
 
 const observer = new IntersectionObserver( entries => {
-    console.log(entries[0].isIntersecting)
-    entries.filter(isIntersecting).forEach(loadImage)
+    entries.filter(isIntersecting).forEach(loadImage);
+    /*
+        entries.forEach(entry => {
+              if (entry.isIntersecting){
+                  const img = entry.target.firstChild;
+                  const url = img.dataset.src;
+                  img.src = url;
+                  observer.unobserve(entry.target);
+              } 
+          })
+    */
 }, { threshold: 0.5 })
 
 const loadImage = entry => {
@@ -17,7 +25,5 @@ const loadImage = entry => {
     observer.unobserve(container) // unobserve
 }
 
-export const registerImage = image => {
-    // Intersection Observe -> observe(image)
-    observer.observe(image);
-}
+// Intersection Observe -> observe(image)
+export const registerImage = image => observer.observe(image);
