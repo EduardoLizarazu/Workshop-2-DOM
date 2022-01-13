@@ -13,25 +13,33 @@
 */
  
 import {  registerImage  } from "./lazy"
-
+import h from "hyperscript";
 const maximum = 122;
 const minimum = 1;
 const random = () => Math.floor(Math.random() * (maximum - minimum) + minimum);
 
 const createImageNode= () => {
+    // create img and attr
+    // const image = document.createElement("img");
+    // image.className = "mx-auto";
+    // image.width = "320";
+    // image.dataset.src = `https://randomfox.ca/images/${random()}.jpg`;
+    // -----
+    // create img and attr
+    const image = h("img.mx-auto", {
+        width: "320",
+        "data-src": `https://randomfox.ca/images/${random()}.jpg`, 
+    })
+
     // create container div
-    const container = document.createElement("div");
-    container.className = "p4";
-
-    // create img
-    const image = document.createElement("img");
-    image.className = "mx-auto";
-    image.width = "320";
-    
-    image.dataset.src = `https://randomfox.ca/images/${random()}.jpg`;
-
+    // const container = document.createElement("div");
+    // container.className = "p4";
+    // ----
     // put img inside the container
-    container.appendChild(image);
+    // container.appendChild(image);
+    // ----
+    // create container hyperscript and put img inside the container
+    const container = h("div.p-4", image);
 
     return container; // return => node container
 }
