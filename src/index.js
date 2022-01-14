@@ -19,12 +19,21 @@ const addImage = () => {
     newImage.appendChild(newImgWrapper);
     // Observe 
     registerImgWrapper(newImgWrapper);
+
+    // Console report
+    appendedImages++;
+    printLog();
 }
 addButton.addEventListener("click", addImage);
 
 const cleanButton = document.querySelector("#clean-img-button");
 const cleanImg = () => {
-    while (mountNode.childElementCount) 
+    while (mountNode.childElementCount) {
         mountNode.childNodes.forEach(item => mountNode.removeChild(item));
+    }
+    // Console report
+    appendedImages = 0;
+    loadedImages = 0;
+    printLog();
 }
 cleanButton.addEventListener("click", cleanImg);

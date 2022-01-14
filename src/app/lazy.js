@@ -31,6 +31,10 @@ const rmImgWrapperNode = entry => {
         const image = parent.firstChild 
         const url = image.dataset.src;
         image.src = url;
+
+        // Console report
+        loadedImages++;
+        printLog();
     }
 }
 const observerImgWrapper = new IntersectionObserver( entries => entries.forEach(rmImgWrapperNode), { threshold: 0.5 })
