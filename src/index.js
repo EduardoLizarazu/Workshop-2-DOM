@@ -8,37 +8,8 @@
  * 3. ImgWr obs 50% -> img src create
 **/
  
-import {  registerImage  } from "./lazy";
-import { createBgLoader } from "./templates/imgWrapper";
-import { registerImgWrapper } from "./templates/imgWrapper";
-const random = () => {
-    const maximum = 122;
-    const minimum = 1;
-    return Math.floor(Math.random() * (maximum - minimum) + minimum)
-};
-
-const createImageNode= () => {
-    // create container div
-    const container = document.createElement("div");
-    container.className = "p4 relative z-50";
-
-    // create img
-    const image = document.createElement("img");
-    image.className = "mx-auto rounded-3xl relative z-10";
-    image.width = "320";
-    image.dataset.src = `https://randomfox.ca/images/${random()}.jpg`;
-
-    container.appendChild(image); // put img inside the container
-    // IMAGE WRAPPER
-    const imageWrapperNode = createBgLoader();
-    container.appendChild(imageWrapperNode);
-    // Observe 
-    registerImgWrapper(imageWrapperNode)
-    
-    
-    return container; // return => node container
-}
-
+import {  registerImage  } from "./app/lazy";
+import { createImageNode } from "./components/img";
 // select mountNode
 const mountNode = document.querySelector("#images");
 
