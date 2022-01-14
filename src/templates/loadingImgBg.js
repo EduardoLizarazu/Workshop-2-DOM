@@ -22,7 +22,7 @@ const observerImgWrapper = new IntersectionObserver( entries => {
             // const parentNode = rmBgNode.parentElement;
             // observerImgWrapper.unobserve(parentNode);
             // parentNode.removeChild(rmBgNode);
-            console.log(entry.target)
+            observerImgWrapper.unobserve(entry.target)
         }
     })
 }, { threshold: 0.5 })
