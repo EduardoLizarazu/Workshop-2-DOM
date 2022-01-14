@@ -18,11 +18,11 @@ export const removeBgLoader = () => {
 const observerImgWrapper = new IntersectionObserver( entries => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            // const rmBgNode = removeBgLoader();
-            // const parentNode = rmBgNode.parentElement;
-            // observerImgWrapper.unobserve(parentNode);
-            // parentNode.removeChild(rmBgNode);
-            observerImgWrapper.unobserve(entry.target)
+            const rmBgNode = removeBgLoader();
+            const parentNode = rmBgNode.parentElement;
+            observerImgWrapper.unobserve(parentNode);
+            parentNode.removeChild(rmBgNode);
+            observerImgWrapper.unobserve(entry.target);
         }
     })
 }, { threshold: 0.5 })

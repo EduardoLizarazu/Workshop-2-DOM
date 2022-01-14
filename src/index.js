@@ -4,7 +4,7 @@
  * Objetivos:
  * 1. Lisener Image Wrapper
  * 2. Unlisen Imgae Wrapper
- * 4. Img -> Unobserve
+ * 4. Img Container -> Unobserve
  * 3. ImgWr obs 50% -> img src create
 **/
  
@@ -32,6 +32,7 @@ const createImageNode= () => {
     // IMAGE WRAPPER
     const imageWrapperNode = createBgLoader();
     container.appendChild(imageWrapperNode);
+    // Observe 
     registerImgWrapper(imageWrapperNode)
     
     
