@@ -9,8 +9,8 @@
 **/
  
 import {  registerImage  } from "./lazy";
-import { createBgLoader } from "./templates/loadingImgBg";
-import { registerImgWrapper } from "./templates/loadingImgBg";
+import { createBgLoader } from "./templates/imgWrapper";
+import { registerImgWrapper } from "./templates/imgWrapper";
 const random = () => {
     const maximum = 122;
     const minimum = 1;

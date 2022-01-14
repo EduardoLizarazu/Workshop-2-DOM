@@ -15,16 +15,15 @@ export const removeBgLoader = () => {
     return rmNode;
 }
 
-const observerImgWrapper = new IntersectionObserver( entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const rmBgNode = removeBgLoader();
-            const parentNode = rmBgNode.parentElement;
-            observerImgWrapper.unobserve(parentNode);
-            parentNode.removeChild(rmBgNode);
-            observerImgWrapper.unobserve(entry.target);
-        }
-    })
-}, { threshold: 0.5 })
+const rmImgWrapperNode = entry => {
+    if (entry.isIntersecting) {
+        const rmBgNode = removeBgLoader();
+        const parentNode = rmBgNode.parentElement;
+        observerImgWrapper.unobserve(parentNode);
+        parentNode.removeChild(rmBgNode);
+        observerImgWrapper.unobserve(entry.target);
+    }
+}
+const observerImgWrapper = new IntersectionObserver( entries => entries.forEach(rmImgWrapperNode), { threshold: 0.5 })
 
 export const registerImgWrapper = imgWrapper => observerImgWrapper.observe(imgWrapper);
