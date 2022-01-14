@@ -1,14 +1,9 @@
 /**
  * This file is just a silly example to show everything working in the browser.
  * When you're ready to start on your site, clear the file. Happy hacking!
- * Objetivos:
- * 1. Lisener Image Wrapper
- * 2. Unlisen Imgae Wrapper
- * 4. Img Container -> Unobserve
- * 3. ImgWr obs 50% -> img src create
+ * 
 **/
  
-import {  registerImage  } from "./app/lazy";
 import { createImageNode } from "./components/img";
 import { createImgWrapper } from "./components/imgWrapper";
 import { registerImgWrapper } from "./app/lazy";
@@ -26,3 +21,10 @@ const addImage = () => {
     registerImgWrapper(newImgWrapper);
 }
 addButton.addEventListener("click", addImage);
+
+const cleanButton = document.querySelector("#clean-img-button");
+const cleanImg = () => {
+    while (mountNode.childElementCount) 
+        mountNode.childNodes.forEach(item => mountNode.removeChild(item));
+}
+cleanButton.addEventListener("click", cleanImg);
