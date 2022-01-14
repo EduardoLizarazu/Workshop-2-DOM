@@ -5,6 +5,7 @@
  
 import {  registerImage  } from "./lazy";
 import { createBgLoader } from "./templates/loadingImgBg";
+import { registerImgWrapper } from "./templates/loadingImgBg";
 const random = () => {
     const maximum = 122;
     const minimum = 1;
@@ -23,8 +24,11 @@ const createImageNode= () => {
     image.dataset.src = `https://randomfox.ca/images/${random()}.jpg`;
 
     container.appendChild(image); // put img inside the container
-    const imageWrapper = createBgLoader();
-    container.appendChild(imageWrapper);
+    // IMAGE WRAPPER
+    const imageWrapperNode = createBgLoader();
+    container.appendChild(imageWrapperNode);
+    registerImgWrapper(imageWrapperNode)
+    
     
     return container; // return => node container
 }

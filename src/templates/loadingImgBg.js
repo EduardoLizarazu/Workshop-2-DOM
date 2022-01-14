@@ -14,3 +14,17 @@ export const removeBgLoader = () => {
     // mountNode.removeChild(rmNode);
     return rmNode;
 }
+
+const observerImgWrapper = new IntersectionObserver( entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            // const rmBgNode = removeBgLoader();
+            // const parentNode = rmBgNode.parentElement;
+            // observerImgWrapper.unobserve(parentNode);
+            // parentNode.removeChild(rmBgNode);
+            console.log(entry.target)
+        }
+    })
+}, { threshold: 0.5 })
+
+export const registerImgWrapper = imgWrapper => observerImgWrapper.observe(imgWrapper);

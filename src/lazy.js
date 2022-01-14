@@ -3,16 +3,6 @@ const isIntersecting = entry => entry.isIntersecting;
 
 const observer = new IntersectionObserver( entries => {
     entries.filter(isIntersecting).forEach(loadImage);
-    /*
-        entries.forEach(entry => {
-              if (entry.isIntersecting){
-                  const img = entry.target.firstChild;
-                  const url = img.dataset.src;
-                  img.src = url;
-                  observer.unobserve(entry.target);
-              } 
-          })
-    */
 }, { threshold: 0.5 })
 
 const loadImage = entry => {
