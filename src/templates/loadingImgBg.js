@@ -9,7 +9,8 @@ export const createBgLoader = () => {
 }
 
 export const removeBgLoader = () => {
-    const mountNode = document.querySelector("#images");
+    // const mountNode = document.querySelector("#images");
     const rmNode = document.getElementById("bg-loader");
-    mountNode.removeChild(rmNode);
+    // mountNode.removeChild(rmNode);
+    return rmNode;
 }

@@ -4,7 +4,7 @@
 **/
  
 import {  registerImage  } from "./lazy";
-
+import { createBgLoader } from "./templates/loadingImgBg";
 const random = () => {
     const maximum = 122;
     const minimum = 1;
@@ -21,8 +21,11 @@ const createImageNode= () => {
     image.className = "mx-auto rounded-3xl";
     image.width = "320";
     image.dataset.src = `https://randomfox.ca/images/${random()}.jpg`;
-    container.appendChild(image); // put img inside the container
 
+    container.appendChild(image); // put img inside the container
+    const imageWrapper = createBgLoader();
+    container.appendChild(imageWrapper);
+    
     return container; // return => node container
 }
 

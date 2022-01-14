@@ -21,7 +21,7 @@ const loadImage = entry => {
     const image = container.firstChild 
     const url = image.dataset.src;
     image.src = url;
-    
+
     observer.unobserve(container) // unobserve
 }
 
