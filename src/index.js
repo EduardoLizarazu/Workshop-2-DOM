@@ -14,11 +14,11 @@ const random = () => {
 const createImageNode= () => {
     // create container div
     const container = document.createElement("div");
-    container.className = "p4";
+    container.className = "p4 relative z-50";
 
     // create img
     const image = document.createElement("img");
-    image.className = "mx-auto rounded-3xl";
+    image.className = "mx-auto rounded-3xl relative z-10";
     image.width = "320";
     image.dataset.src = `https://randomfox.ca/images/${random()}.jpg`;
 
