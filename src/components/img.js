@@ -1,6 +1,3 @@
-import { createImgWrapper } from "./imgWrapper";
-import { registerImgWrapper } from "./imgWrapper";
-
 const random = () => {
     const maximum = 122;
     const minimum = 1;
@@ -19,12 +16,6 @@ export const createImageNode= () => {
     image.dataset.src = `https://randomfox.ca/images/${random()}.jpg`;
 
     container.appendChild(image); // put img inside the container
-    // IMAGE WRAPPER
-    const imageWrapperNode = createImgWrapper();
-    container.appendChild(imageWrapperNode);
-    // Observe 
-    registerImgWrapper(imageWrapperNode)
-    
-    
+
     return container; // return => node container
 }

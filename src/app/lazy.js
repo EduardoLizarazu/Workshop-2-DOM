@@ -17,3 +17,22 @@ const loadImage = entry => {
 
 // Intersection Observe -> observe(image)
 export const registerImage = image => observer.observe(image);
+
+
+
+const rmImgWrapperNode = entry => {
+    if (entry.isIntersecting) {
+        const rmNode = document.getElementById("bg-loader");
+        const parent =  rmNode.parentElement
+        parent.removeChild(rmNode);
+        observerImgWrapper.unobserve(entry.target);
+
+        // put the src to render img
+        const image = parent.firstChild 
+        const url = image.dataset.src;
+        image.src = url;
+    }
+}
+const observerImgWrapper = new IntersectionObserver( entries => entries.forEach(rmImgWrapperNode), { threshold: 0.5 })
+
+export const registerImgWrapper = imgWrapper => observerImgWrapper.observe(imgWrapper);

@@ -10,6 +10,8 @@
  
 import {  registerImage  } from "./app/lazy";
 import { createImageNode } from "./components/img";
+import { createImgWrapper } from "./components/imgWrapper";
+import { registerImgWrapper } from "./app/lazy";
 // select mountNode
 const mountNode = document.querySelector("#images");
 
@@ -17,7 +19,13 @@ const addButton = document.querySelector("button");
 const addImage = () => {
     const newImage = createImageNode(); // node container img created
     mountNode.appendChild(newImage) // put into mountNode
-    // ----
-    // registerImage(newImage); // listen the container img
+
+    //registerImage(newImage); // listen the container img
+
+    // IMAGE WRAPPER
+    const newImgWrapper = createImgWrapper();
+    newImage.appendChild(newImgWrapper);
+    // Observe 
+    registerImgWrapper(newImgWrapper);
 }
 addButton.addEventListener("click", addImage);
